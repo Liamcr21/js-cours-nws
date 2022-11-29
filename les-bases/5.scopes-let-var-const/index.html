@@ -18,11 +18,22 @@
 
    let authorized = false;
 
-   function isauthorized(userage){
-     if(age > 18){
-      return true;
-     }
-      }
+   function isAuthorized(userAge) {
+    return userAge >= 18;
+   }
+
    
+   submit.addEventListener('click', function(event) {
+    event.preventDefault();
+    authorized = isAuthorized(age.value);
+    if(authorized) {
+      document.body.innerHTML = ('Autorisé')
+   document.body.style.color = 'green';
+    }
+     else {
+      document.body.innerHTML =('Non autorisé')
+   document.body.style.color = 'red';
+    }
+     });
   </script>
 </html>
