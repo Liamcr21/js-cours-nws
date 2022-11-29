@@ -6,7 +6,7 @@
   <body></body>
 
   <script>
-    const coachs = fetch('https://api.egrouen.net/api/coachs?filters[degree][$null]')
+    const coachs = fetch('https://api.egrouen.net/api/coachs?filters[degree][$null]%27')
       .then((response) => response.json())
       .then((data) => {
         data = data.data;
@@ -14,7 +14,32 @@
       });
 
     coachs.then((data) => {
-      // TODO: afficher les coachs suivi du nombre de coachs total
+      data.map((coach) => {
+        const {id, name, degree, bio} = coach.attributes
+        return {
+          id,
+          name,
+          degree,
+          bio,
+        };
+      })
+
+
+      
+      const displayPages = data.map((coach) => {
+        return `<div class="page">
+         <h2>${coach.attributes.name}</h2>
+        <p>${coach.attributes.bio}</p>
+        <p>${coach.attributes.degree}</p>
+        </div>`;
+      });
+      const container = document.createElement('div');
+
+      container.innerHTML = displayPages.join('');
+
+      document.body.appendChild(container);
     });
+
+
   </script>
 </html>
