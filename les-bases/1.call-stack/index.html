@@ -5,18 +5,16 @@
   </head>
   <body></body>
   <script type="module">
-    import { callStackDemoTrace } from '/index.js';
+    import {callStackDemoTrace } from "./index.js";
 
     const btn = document.createElement('button');
 
-    btn.innerText = 'demo de callstack error avec trace';
+    btn.innerText = 'Demo de callstack error avec trace';
 
-    btn.onclick = function() {
-      callStackDemoTrace();
-        }
-
+    btn.addEventListener('click', function() {
+      callStackDemoTrace()
+    });
 
     document.body.appendChild(btn);
-    
   </script>
 </html>
