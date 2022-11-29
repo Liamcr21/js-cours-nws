@@ -4,5 +4,19 @@
     <title>CALL STACKS</title>
   </head>
   <body></body>
-  <script type="module"></script>
+  <script type="module">
+    import { callStackDemoTrace } from '/index.js';
+
+    const btn = document.createElement('button');
+
+    btn.innerText = 'demo de callstack error avec trace';
+
+    btn.onclick = function() {
+      callStackDemoTrace();
+        }
+
+
+    document.body.appendChild(btn);
+    
+  </script>
 </html>
