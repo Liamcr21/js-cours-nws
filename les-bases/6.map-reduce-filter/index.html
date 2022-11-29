@@ -22,10 +22,12 @@
           degree,
           bio,
         };
-      })
+        }).filter((coach) => {
+          return coach.degree.includes ('License');
+        })
 
 
-      
+
       const displayPages = data.map((coach) => {
         return `<div class="page">
          <h2>${coach.attributes.name}</h2>
@@ -33,6 +35,8 @@
         <p>${coach.attributes.degree}</p>
         </div>`;
       });
+
+
       const container = document.createElement('div');
 
       container.innerHTML = displayPages.join('');
